@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 enum Sections: Int {
     case TrendingMovies = 0
@@ -39,15 +40,24 @@ class HomeViewController: UIViewController {
            super.viewDidLoad()
            view.backgroundColor = .systemBackground
            addSubViews()
+           //skeletonUsage()
            configureNavbar()
            makeConstraints()
            getTrandingMovies()
            configureHeaderUIView()
+         
         
 //        APICaller.shared.getMovie(with: "Harry Potter") { result in
 //
 //        }
        }
+    
+    func skeletonUsage() {
+        homeFeedTable.isSkeletonable = true
+        homeFeedTable.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+        homeFeedTable.startSkeletonAnimation()
+        homeFeedTable.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+    }
     
     private func configureHeaderUIView() {
         APICaller.shared.getTrendingMovies { [weak self] result in
@@ -92,6 +102,8 @@ class HomeViewController: UIViewController {
         APICaller.shared.getTrendingMovies { results in
         switch results {
             case .success(let movies):
+//            self.homeFeedTable.stopSkeletonAnimation()
+//            self.homeFeedTable.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
             print(movies)
             case .failure(let error):
             print(error)

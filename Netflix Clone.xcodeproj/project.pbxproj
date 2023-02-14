@@ -11,6 +11,7 @@
 		D36E6261298B7AAA00D9EE50 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E6260298B7AAA00D9EE50 /* TitleViewModel.swift */; };
 		D389ACE9299A479E00B31AB1 /* NetflixCloneModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D389ACE7299A479E00B31AB1 /* NetflixCloneModel.xcdatamodeld */; };
 		D389ACEB299A49B900B31AB1 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D389ACEA299A49B900B31AB1 /* DataPersistenceManager.swift */; };
+		D389ACEE299AAFAC00B31AB1 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = D389ACED299AAFAC00B31AB1 /* SkeletonView */; };
 		D3A1691E298C27CC00B408C7 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1691D298C27CC00B408C7 /* SearchResultsViewController.swift */; };
 		D3A16922298FC1F100B408C7 /* YoutubeSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A16921298FC1F100B408C7 /* YoutubeSearchResults.swift */; };
 		D3A16924298FC77600B408C7 /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A16923298FC77600B408C7 /* TitlePreviewViewController.swift */; };
@@ -73,6 +74,7 @@
 				D3C8C38129899DFB004FF10A /* SDWebImage in Frameworks */,
 				D3C8C38329899DFB004FF10A /* SDWebImageMapKit in Frameworks */,
 				D3FE041B2987A838002B5D98 /* SnapKit in Frameworks */,
+				D389ACEE299AAFAC00B31AB1 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +213,7 @@
 				D3C8C38029899DFB004FF10A /* SDWebImage */,
 				D3C8C38229899DFB004FF10A /* SDWebImageMapKit */,
 				D3C8C38529899E37004FF10A /* Kingfisher */,
+				D389ACED299AAFAC00B31AB1 /* SkeletonView */,
 			);
 			productName = "Netflix Clone";
 			productReference = D3FE03EB29839890002B5D98 /* Netflix Clone.app */;
@@ -244,6 +247,7 @@
 				D3FE04192987A838002B5D98 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D3C8C37F29899DFB004FF10A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				D3C8C38429899E37004FF10A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D389ACEC299AAFAB00B31AB1 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = D3FE03EC29839890002B5D98 /* Products */;
 			projectDirPath = "";
@@ -501,6 +505,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D389ACEC299AAFAB00B31AB1 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D3C8C37F29899DFB004FF10A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -528,6 +540,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D389ACED299AAFAC00B31AB1 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D389ACEC299AAFAB00B31AB1 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		D3C8C38029899DFB004FF10A /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3C8C37F29899DFB004FF10A /* XCRemoteSwiftPackageReference "SDWebImage" */;

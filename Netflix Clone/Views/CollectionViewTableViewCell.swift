@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 import SnapKit
-
+import SkeletonView
 protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel:TitlePreviewViewModel)
 }
@@ -35,8 +35,9 @@ class CollectionViewTableViewCell: UITableViewCell {
     // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemPink
+        contentView.backgroundColor = .systemBackground
         addSubviews()
+        skeletonUsage()
     }
     
     required init?(coder: NSCoder) {
@@ -49,10 +50,23 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+    
+    
+    
+    func skeletonUsage() {
+      collectionView.isSkeletonable = true
+    collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+        collectionView.startSkeletonAnimation()
+        collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+    }
+    
+    
+    
     // MARK: - Private
     private func addSubviews() {
         contentView.addSubview(collectionView)
     }
+    
     
     private func downloadTitleAt(indexPath: IndexPath) {
         
@@ -109,6 +123,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 let title = self?.titles[indexPath.row]
                 guard let titleOverview = title?.overview else { return }
                 guard let strongSelf = self else { return }
+                collectionView.stopSkeletonAnimation()
+                collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                 let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: titleOverview)
                 self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
             case .failure(let error):

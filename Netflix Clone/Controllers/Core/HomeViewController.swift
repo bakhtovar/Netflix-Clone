@@ -41,12 +41,13 @@ class HomeViewController: UIViewController {
            view.backgroundColor = .systemBackground
            addSubViews()
            //skeletonUsage()
+           //skeletonUsage()
            configureNavbar()
            makeConstraints()
            getTrandingMovies()
            configureHeaderUIView()
          
-        
+           
 //        APICaller.shared.getMovie(with: "Harry Potter") { result in
 //
 //        }
@@ -65,7 +66,6 @@ class HomeViewController: UIViewController {
             case .success(let titles):
                 let selectedTitle = titles.randomElement()
                 self?.randomTrendingMovies = selectedTitle
-                
                 self?.headerView?.configure(with: TitleViewModel(titleName: selectedTitle?.original_title ?? "", posterURL: selectedTitle?.poster_path ?? ""))
             case .failure(let error):
                 print(error.localizedDescription)
@@ -102,8 +102,6 @@ class HomeViewController: UIViewController {
         APICaller.shared.getTrendingMovies { results in
         switch results {
             case .success(let movies):
-//            self.homeFeedTable.stopSkeletonAnimation()
-//            self.homeFeedTable.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
             print(movies)
             case .failure(let error):
             print(error)
@@ -136,6 +134,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 switch result {
                 case .success(let titles):
                     cell.configure(with: titles)
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

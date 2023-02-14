@@ -37,7 +37,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemBackground
         addSubviews()
-        skeletonUsage()
+       // skeletonUsage()
     }
     
     required init?(coder: NSCoder) {
@@ -123,8 +123,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 let title = self?.titles[indexPath.row]
                 guard let titleOverview = title?.overview else { return }
                 guard let strongSelf = self else { return }
-                collectionView.stopSkeletonAnimation()
-                collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+//                collectionView.stopSkeletonAnimation()
+//                collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                 let viewModel = TitlePreviewViewModel(title: titleName, youtubeView: videoElement, titleOverview: titleOverview)
                 self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
             case .failure(let error):

@@ -10,19 +10,21 @@ This appication allows users to see Top Rated, Popular, Upcoming movies from the
 * [SDWebImage](https://github.com/SDWebImage/SDWebImage) library.
 * [CoreData](https://developer.apple.com/documentation/coredata) library.
 * [SnapKit](https://github.com/SnapKit/SnapKit) library.
-* [UIKit](https://developer.apple.com/documentation/uikit/)
-* [TMDB API](https://www.themoviedb.org)
-* [Youtube API](https://developers.google.com/youtube/v3)
+* [UIKit](https://developer.apple.com/documentation/uikit/) library.
+* [TMDB API](https://www.themoviedb.org) API.
+* [Youtube API](https://developers.google.com/youtube/v3) API.
 
 
 ## How to use
 
+```
 struct Constants{
     static let API_KEY = "API_KEY" // Enter a api key 
     static let YoutubeAPI_KEY = "YoutubeAPI_KEY" // Enter a Youtube API
     static let BASE_URL = "https://api.themoviedb.org"
     static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
 }
+```
 
 Enter your API_KEY and YoutubeAPI_KEY inside the quotes marks! Without it the application will not work.
 

@@ -26,11 +26,12 @@ struct Constants{
 }
 ```
 
+
 Enter your API_KEY and YoutubeAPI_KEY inside the quotes marks! Without it the application will not work.
 
 
 ## Screenshots
-<img src="" width="200"> <img src="Netflix-Clone/Netflix Clone/AppScreenshots/Upcoming.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Delete.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Home.png" width="200">
+<img src="" width="200"> <img src="Netflix Clone/AppScreenshots/Delete.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Delete.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Home.png" width="200">
 
 <img src="Netflix-Clone/AppScreenshots/Favorites.png" width="200" > <img src="Netflix-Clone/AppScreenshots/Search.png" width="200">
 <img src="Netflix-Clone/AppScreenshots/WebView.png" width="200" > 

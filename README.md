@@ -31,7 +31,7 @@ Enter your API_KEY and YoutubeAPI_KEY inside the quotes marks! Without it the ap
 
 
 ## Screenshots
-<img src="Netflix Clone/AppScreenshots/Download.png" width="200"> <img src="Netflix Clone/AppScreenshots/Delete.png" width="200"> <img src="Netflix Clone/AppScreenshots/Upcoming.png" width="200"> <img src="Netflix Clone/AppScreenshots/Home.png" width="200">
+<img src="Netflix Clone/AppScreenshots/Home.png" width="200"> <img src="Netflix Clone/AppScreenshots/Upcoming.png" width="200"> <img src="Netflix Clone/AppScreenshots/Search.png" width="200"> <img src="Netflix Clone/AppScreenshots/Download.png" width="200">
 
-<img src="Netflix Clone/AppScreenshots/Favorites.png" width="200" > <img src="Netflix Clone/AppScreenshots/Search.png" width="200">
+<img src="Netflix Clone/AppScreenshots/Favorites.png" width="200" > <img src="Netflix Clone/AppScreenshots/Delete.png" width="200">
 <img src="Netflix Clone/AppScreenshots/WebView.png" width="200" > 

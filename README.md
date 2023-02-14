@@ -19,9 +19,9 @@ This appication allows users to see Top Rated, Popular, Upcoming movies from the
 
 ```
 struct Constants{
-    static let API_KEY = "API_KEY" // Enter a api key 
-    static let YoutubeAPI_KEY = "YoutubeAPI_KEY" // Enter a Youtube API
+    static let API_KEY = "API_KEY" // Enter an api key 
     static let BASE_URL = "https://api.themoviedb.org"
+    static let YoutubeAPI_KEY = "YoutubeAPI_KEY" // Enter a Youtube API
     static let YoutubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search?"
 }
 ```
@@ -30,9 +30,7 @@ Enter your API_KEY and YoutubeAPI_KEY inside the quotes marks! Without it the ap
 
 
 ## Screenshots
-<img src="News-App/AppScreenshots/account.png" width="200"> <img src="News-App/AppScreenshots/articles.png" width="200"> <img src="News-App/AppScreenshots/bookmarks.png" width="200"> <img src="News-App/AppScreenshots/mainScreen.png" width="200">
+<img src="" width="200"> <img src="Netflix-Clone/AppScreenshots/Upcoming.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Delete.png" width="200"> <img src="Netflix-Clone/AppScreenshots/Home.png" width="200">
 
-<img src="News-App/AppScreenshots/resetPassword.png" width="200" > <img src="News-App/AppScreenshots/search.png" width="200">
-<img src="News-App/AppScreenshots/signIn.png" width="200" ><img src="News-App/AppScreenshots/signUp.png" width="200">
-
-<img src="News-App/AppScreenshots/sources.png" width="200" > <img src="News-App/AppScreenshots/webView.png" width="200">
+<img src="Netflix-Clone/AppScreenshots/Favorites.png" width="200" > <img src="Netflix-Clone/AppScreenshots/Search.png" width="200">
+<img src="Netflix-Clone/AppScreenshots/WebView.png" width="200" > 

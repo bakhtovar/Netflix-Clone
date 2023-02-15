@@ -21,17 +21,15 @@ class MainTabViewController: UITabBarController {
         let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: FavoritesViewController())
         
-        
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc2.tabBarItem.image = UIImage(systemName: "play.circle")
         vc3.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        vc4.tabBarItem.image = UIImage(systemName: "arrow.down.to.line")
-        
+        vc4.tabBarItem.image = UIImage(systemName: "bookmark")
         
         vc1.title = "Home"
         vc2.title = "Upcoming"
-        vc3.title = "Top Rated"
-        vc4.title = "Downloads"
+        vc3.title = "Search"
+        vc4.title = "Favorites"
         
         tabBar.tintColor = .label
         

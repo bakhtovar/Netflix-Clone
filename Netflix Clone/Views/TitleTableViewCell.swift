@@ -55,14 +55,12 @@ class TitleTableViewCell: UITableViewCell {
             make.leading.equalToSuperview()
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
-           //make.bottom.equalTo(contentView.snp.bottom).inset(-15)
             make.width.equalTo(100)
         }
         
         titleLabel.snp.updateConstraints { make in
             make.leading.equalTo(titlePosterImageView.snp.trailing).offset(20)
             make.centerY.equalToSuperview()
-          //  make.centerY.equalTo(contentView.snp.centerY)
         }
         
         playTitleButton.snp.updateConstraints { make in

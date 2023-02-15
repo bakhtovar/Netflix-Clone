@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import SDWebImage
 import Kingfisher
+import SkeletonView
 
 class TitleCollectionViewCell: UICollectionViewCell {
     
@@ -37,7 +38,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+   
     public func configure(with model: String) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {
             return

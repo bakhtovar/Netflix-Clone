@@ -42,16 +42,6 @@ class HeaderUIView: UIView {
         return imageView
     }()
     
-    private func addGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [
-            UIColor.clear.cgColor,
-            UIColor.systemBackground.cgColor
-        ]
-        gradientLayer.frame = bounds
-        layer.addSublayer(gradientLayer)
-    }
-    
     // MARK: - Inits
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +70,6 @@ class HeaderUIView: UIView {
         playButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(70)
             make.bottom.equalToSuperview().inset(50)
-//            make.bottom.equalTo(heroImageView.snp.bottom).inset(25)
             make.width.equalTo(100)
         }
         
@@ -98,6 +87,16 @@ class HeaderUIView: UIView {
         addGradient()
         addSubview(playButton)
         addSubview(downloadButton)
+    }
+    
+    private func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
     }
 }
 

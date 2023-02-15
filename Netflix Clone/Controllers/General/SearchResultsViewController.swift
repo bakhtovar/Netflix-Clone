@@ -14,10 +14,13 @@ protocol SearchResultsViewControllerDelegate: AnyObject {
 
 class SearchResultsViewController: UIViewController {
     
+    //MARK: - Data Layer
     public var titles: [Title] = [Title]()
     
     public weak var delegate: SearchResultsViewControllerDelegate?
     
+    
+    //MARK: - UI
     public lazy var searchResultsCollectionView: UICollectionView  = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10 , height: 200)
@@ -29,17 +32,16 @@ class SearchResultsViewController: UIViewController {
         collectionView.dataSource = self
         return collectionView
     }()
-
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         view.addSubview(searchResultsCollectionView)
-   
-        
         makeConstraints()
     }
     
+    // MARK: - Constraints
     private func makeConstraints() {
         searchResultsCollectionView.snp.makeConstraints { make in
             make.size.equalToSuperview()

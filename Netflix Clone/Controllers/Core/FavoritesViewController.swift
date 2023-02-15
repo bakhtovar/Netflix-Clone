@@ -9,7 +9,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
-
+    // MARK: - Data Layer
     private var titles: [TitleItem] = [TitleItem]()
 
     private lazy var savedTable: UITableView = {

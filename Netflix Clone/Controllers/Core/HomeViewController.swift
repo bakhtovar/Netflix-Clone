@@ -40,20 +40,25 @@ class HomeViewController: UIViewController {
            super.viewDidLoad()
            view.backgroundColor = .systemBackground
            addSubViews()
-           //skeletonUsage()
-           //skeletonUsage()
            configureNavbar()
            makeConstraints()
            getTrandingMovies()
            configureHeaderUIView()
-         
-           
-//        APICaller.shared.getMovie(with: "Harry Potter") { result in
-//
-//        }
        }
     
-    func skeletonUsage() {
+    // MARK: - Constraints
+    private func makeConstraints() {
+        homeFeedTable.snp.makeConstraints { make in
+            make.size.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Private
+    private func addSubViews() {
+        view.addSubview(homeFeedTable)
+    }
+    
+    private func skeletonUsage() {
         homeFeedTable.isSkeletonable = true
         homeFeedTable.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
         homeFeedTable.startSkeletonAnimation()
@@ -72,19 +77,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Constraints
-    private func makeConstraints() {
-        homeFeedTable.snp.makeConstraints { make in
-            make.size.equalToSuperview()
-        }
-    }
-    
-    // MARK: - Private
-    private func addSubViews() {
-        view.addSubview(homeFeedTable)
-    }
-    
+
     private func configureNavbar() {
            var image = UIImage(named: "netflixLogo")
            image = image?.withRenderingMode(.alwaysOriginal)

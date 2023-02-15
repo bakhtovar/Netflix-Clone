@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 import SnapKit
 import SkeletonView
+
+
 protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel:TitlePreviewViewModel)
 }
@@ -20,6 +22,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     private var titles: [Title] = [Title]()
     weak var delegate: CollectionViewTableViewCellDelegate?
     
+    var shouldAnimate =  true
     // MARK: - UI
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,7 +40,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemBackground
         addSubviews()
-       // skeletonUsage()
+        skeletonUsage()
     }
     
     required init?(coder: NSCoder) {
@@ -46,27 +49,24 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     public func configure(with titles:[Title]) {
         self.titles = titles
-        DispatchQueue.main.async {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {[weak self] in
+            self?.collectionView.stopSkeletonAnimation()
+            self?.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
             self?.collectionView.reloadData()
         }
     }
-    
-    
-    
-    func skeletonUsage() {
-      collectionView.isSkeletonable = true
-    collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
-        collectionView.startSkeletonAnimation()
-        collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
-    }
-    
-    
-    
+
     // MARK: - Private
     private func addSubviews() {
         contentView.addSubview(collectionView)
     }
     
+    private func skeletonUsage() {
+      collectionView.isSkeletonable = true
+      collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+      collectionView.startSkeletonAnimation()
+      collectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .emerald), animation: nil, transition: .crossDissolve(0.25))
+    }
     
     private func downloadTitleAt(indexPath: IndexPath) {
         
@@ -77,7 +77,6 @@ class CollectionViewTableViewCell: UITableViewCell {
             case .failure(let error):
                 print(error)
             }
-            
         }
     }
     
@@ -88,8 +87,6 @@ class CollectionViewTableViewCell: UITableViewCell {
         }
          super.updateConstraints()
     }
-    
-    
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -104,6 +101,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             return UICollectionViewCell()
         }
         cell.configure(with: model)
+    
         return cell
     }
      
@@ -146,27 +144,12 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                 }
                 return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
             }
-        
         return config
     }
-    
 }
 
-//
-//extension UIImageView {
-//
-//    func load(from urlString: String, model: String, completion: ((UIImage?) -> Void)? = nil) {
-//        if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)")  {
-//            self.kf.setImage(with: url, options: [.transition(.fade(0.1))], completionHandler: { result in
-//                DispatchQueue.main.async {
-//                    if case .success(let image) = result {
-//                        completion?(image.image)
-//                    } else {
-//                        completion?(nil)
-//                    }
-//                }
-//            })
-//        }
-//    }
-//}
-
+extension CollectionViewTableViewCell: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        return "cellReusableIdentifier"
+    }
+}

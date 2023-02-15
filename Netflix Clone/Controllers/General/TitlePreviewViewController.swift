@@ -10,6 +10,7 @@ import WebKit
 
 class TitlePreviewViewController: UIViewController {
 
+    //MARK: - UI
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,20 +46,36 @@ class TitlePreviewViewController: UIViewController {
         return webView
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
-        
+        addSubviews()
+        makeConstraints()
+    }
+    
+    func configure(with model: TitlePreviewViewModel) {
+        titleLabel.text = model.title
+        overviewLabel.text = model.titleOverview
+        guard let url = URL(string: "https://www.youtube.com/embed/\(model.youtubeView.id.videoId)") else {
+            return
+        }
+        print(url)
+        print("url")
+        webView.load(URLRequest(url: url))
+    }
+    
+    //MARK: - Private
+    private func addSubviews() {
         view.addSubview(webView)
         view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(downloadButton)
-        makeConstraints()
-        
+
     }
     
-    func makeConstraints() {
+    // MARK: - Constraints
+    private func makeConstraints() {
         webView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(50)
             make.leading.equalToSuperview()
@@ -85,14 +102,4 @@ class TitlePreviewViewController: UIViewController {
         }
     }
     
-    func configure(with model: TitlePreviewViewModel) {
-        titleLabel.text = model.title
-        overviewLabel.text = model.titleOverview
-        guard let url = URL(string: "https://www.youtube.com/embed/\(model.youtubeView.id.videoId)") else {
-            return
-        }
-        print(url)
-        print("url")
-        webView.load(URLRequest(url: url))
-    }
 }

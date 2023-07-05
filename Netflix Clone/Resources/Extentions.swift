@@ -16,8 +16,7 @@ extension String {
 }
 
 extension UIImageView {
-    
-    /// If the image comes from Humo it adds `HOKeychain.imageBaseURL` otherwise it proceeds with url.
+
     func load(from urlString: String, completion: ((UIImage?) -> Void)? = nil) {
         if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(urlString)") {
             self.kf.setImage(with: url, options: [.transition(.fade(0.1))], completionHandler: { result in
